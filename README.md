@@ -42,7 +42,7 @@ These steps have been tested on Mountain Lion 10.8.4 with Xcode 4.6.3.
 - Install gnuradio 
 
   ```sh
-  brew tap robotastic/hackrf-osx
+  brew tap robotastic/homebrew-hackrf
   brew install gnuradio --with-qt
   ```
 - Create the `~/.gnuradio/config.conf` config file for custom block support
