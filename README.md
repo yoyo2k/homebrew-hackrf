@@ -1,39 +1,49 @@
-# homebrew-gnuradio
+# HackRF OSX Install
 
-This is a collection of [Homebrew](https://github.com/mxcl/homebrew) recipes
-that makes it easier get GNU Radio and friends running on OS X.
+This will walk you through getting HackRF to work on OSX. It is really just an adaptation of the awesome collection of [Homebrew](https://github.com/mxcl/homebrew) recipes from [Titanous](https://github.com/titanous/homebrew-gnuradio) for getting GNU Radio running on OSX.
 
 ## Installation
 
-These steps have been tested on Lion 10.7.4 with Xcode 4.3.2 and Mountain Lion
-10.8 with Xcode 4.4.1.
+These steps have been tested on Mountain Lion 10.8.4 with Xcode 4.6.3.
 
-- Add this line to your profile (ie `~/.bash_profile` or `~/.zshenv`) and reload
-  your shell (`exec $SHELL`)
+- Install [Homebrew](http://brew.sh/) if you haven't already
 
   ```sh
-  export PATH=/usr/local/bin:/usr/local/share/python:$PATH
+  ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+  ```
+- After that is done run the following to make sure you have no issues with your setup, cleanup anything it catches
+
+  ```sh
+  brew doctor
+  ```
+
+- Add this line to your profile (ie `~/.profile` or `~/.bash_profile` or `~/.zshenv`) and reload
+  your profile (`source ~/.profile` or `exec $SHELL`)
+
+  ```sh
+  export PATH=/usr/local/sbin:/usr/local/bin:$PATH
   ```
 
 - Install the python package prerequisites
 
   ```sh
-  brew install python gfortran umfpack swig
+  brew install python gfortran swig
   ```
 
 - Install the prerequisite python packages
 
   ```sh
   pip install numpy Cheetah lxml
-  pip install https://github.com/scipy/scipy/tarball/v0.11.0rc2
-  export PKG_CONFIG_PATH="/usr/x11/lib/pkgconfig" pip install http://downloads.sourceforge.net/project/matplotlib/matplotlib/matplotlib-1.1.1/matplotlib-1.1.1.tar.gz
+  pip install https://github.com/scipy/scipy/archive/v0.12.0.tar.gz
+  export PKG_CONFIG_PATH="/usr/x11/lib/pkgconfig" 
+  pip install https://downloads.sourceforge.net/project/matplotlib/matplotlib/matplotlib-1.2.1/matplotlib-1.2.1.tar.gz
   ```
 
-- Install gnuradio (add `--with-qt` for `gr-qtgui`)
+- Install gnuradio 
 
   ```sh
-  brew tap titanous/homebrew-gnuradio
-  brew install gnuradio
+  brew tap robotastic/hackrf-osx
+  brew install gnuradio --with-qt
   ```
 - Create the `~/.gnuradio/config.conf` config file for custom block support
 
