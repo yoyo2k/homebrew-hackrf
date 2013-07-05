@@ -39,30 +39,34 @@ These steps have been tested on Mountain Lion 10.8.4 with Xcode 4.6.3.
   pip install https://downloads.sourceforge.net/project/matplotlib/matplotlib/matplotlib-1.2.1/matplotlib-1.2.1.tar.gz
   ```
 
+- Install `wxmac` 2.9 with python bindings
+
+  ```sh
+  brew install wxmac --python
+  ```
+- Install GCC 4.2
+
+  ```sh
+  brew update
+  brew tap homebrew/dupes
+  brew install apple-gcc42
+  ```
+
 - Install gnuradio 
 
   ```sh
   brew tap robotastic/homebrew-hackrf
   brew install gnuradio --with-qt
   ```
-- Create the `~/.gnuradio/config.conf` config file for custom block support
+
+- Create the `~/.gnuradio/config.conf` config file for custom block support and add this into it
 
   ```ini
   [grc]
   local_blocks_path=/usr/local/share/gnuradio/grc/blocks
   ```
 
-### Optional (for `gr-wxgui`)
-
-- Before installing `gnuradio`, install `wxmac` 2.9 with python bindings
-
-  ```sh
-  brew install wxmac --python
-  ```
-
-### Optional (for rtl-sdr devices)
-
-- Install `rtlsdr` and related blocks
+- Install HackRF & RTL-SDR related blocks
 
   ```sh
   brew install rtlsdr gr-osmosdr gr-baz --HEAD
