@@ -58,6 +58,11 @@ These steps have been tested on Mountain Lion 10.8.4 with Xcode 4.6.3.
   brew tap robotastic/homebrew-hackrf
   brew install gnuradio --with-qt
   ```
+- Install HackRF Libraries
+
+  ```sh
+  brew install hackrf
+  ```
 
 - Create the `~/.gnuradio/config.conf` config file for custom block support and add this into it
 
