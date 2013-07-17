@@ -35,7 +35,7 @@ These steps have been tested on Mountain Lion 10.8.4 with Xcode 4.6.3.
   ```sh
   pip install numpy Cheetah lxml
   pip install https://github.com/scipy/scipy/archive/v0.12.0.tar.gz
-  export PKG_CONFIG_PATH="/usr/x11/lib/pkgconfig" 
+  export PKG_CONFIG_PATH="/usr/X11/lib/pkgconfig" 
   pip install https://downloads.sourceforge.net/project/matplotlib/matplotlib/matplotlib-1.2.1/matplotlib-1.2.1.tar.gz
   ```
 
