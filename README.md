@@ -88,20 +88,20 @@ osmocom_fft -a hackrf
 
 ##Troubleshooting
 
-**Matplotlib**
+- **Matplotlib**
 
-If you get the following type of errors installing matplotlib:
+  If you get the following type of errors installing matplotlib:
 
-> error: expected identifier or '(' before '^' token
-  
-Try the following:
+  > error: expected identifier or '(' before '^' token
     
-```sh
-export CC=clang
-export CXX=clang++
-export LDFLAGS="-L/usr/X11/lib"
-export CFLAGS="-I/usr/X11/include -I/usr/X11/include/freetype2"
-```
-    
-From [Stackoverflow](http://stackoverflow.com/questions/12363557/matplotlib-install-failure-on-mac-osx-10-8-mountain-lion/15098059#15098059) via [@savant42](https://twitter.com/savant42)
+  Try the following:
+      
+  ```sh
+  export CC=clang
+  export CXX=clang++
+  export LDFLAGS="-L/usr/X11/lib"
+  export CFLAGS="-I/usr/X11/include -I/usr/X11/include/freetype2"
+  ```
+      
+  From [Stackoverflow](http://stackoverflow.com/questions/12363557/matplotlib-install-failure-on-mac-osx-10-8-mountain-lion/15098059#15098059) via [@savant42](https://twitter.com/savant42)
 
