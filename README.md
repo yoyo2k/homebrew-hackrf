@@ -78,6 +78,7 @@ These steps have been tested on Mountain Lion 10.8.4 with Xcode 4.6.3.
   ```
 
 **Congratulations!!**
+
 Everything should now be working. It is time to give it a try! Below are some of the programs you can try
 
 ```sh
@@ -88,18 +89,19 @@ osmocom_fft -a hackrf
 ##Troubleshooting
 
 **Matplotlib**
-  If you get the following type of errors installing matplotlib:
 
-    > error: expected identifier or '(' before '^' token
+If you get the following type of errors installing matplotlib:
+
+> error: expected identifier or '(' before '^' token
   
-    Try the following:
+Try the following:
     
-  ```sh
-    export CC=clang
-  export CXX=clang++
-  export LDFLAGS="-L/usr/X11/lib"
-  export CFLAGS="-I/usr/X11/include -I/usr/X11/include/freetype2"
-    ```
+```sh
+export CC=clang
+export CXX=clang++
+export LDFLAGS="-L/usr/X11/lib"
+export CFLAGS="-I/usr/X11/include -I/usr/X11/include/freetype2"
+```
     
-    From [Stackoverflow](http://stackoverflow.com/questions/12363557/matplotlib-install-failure-on-mac-osx-10-8-mountain-lion/15098059#15098059) via [@savant42](https://twitter.com/savant42)
+From [Stackoverflow](http://stackoverflow.com/questions/12363557/matplotlib-install-failure-on-mac-osx-10-8-mountain-lion/15098059#15098059) via [@savant42](https://twitter.com/savant42)
 
