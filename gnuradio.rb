@@ -117,13 +117,34 @@ index f54aa4f..db0ce3c 100644
 -GR_PYTHON_CHECK_MODULE("pygtk >= 2.10.0"   gtk          "gtk.pygtk_version >= (2, 10, 0)"           PYGTK_FOUND)
 +GR_PYTHON_CHECK_MODULE("pygtk >= 2.10.0"   pygtk        True                                        PYGTK_FOUND)
  GR_PYTHON_CHECK_MODULE("numpy"             numpy        True                                        NUMPY_FOUND)
- 
+
  ########################################################################
+
 diff --git a/gr-qtgui/lib/spectrumdisplayform.ui b/gr-qtgui/lib/spectrumdisplayform.ui
-index 049d4ff..a40502b 100644
+index 049d4ff..43e6857 100644
 --- a/gr-qtgui/lib/spectrumdisplayform.ui
 +++ b/gr-qtgui/lib/spectrumdisplayform.ui
-@@ -518,7 +518,6 @@
+@@ -330,9 +330,6 @@
+          <property name="focusPolicy">
+           <enum>Qt::WheelFocus</enum>
+          </property>
+-         <property name="valid">
+-          <bool>true</bool>
+-         </property>
+          <property name="totalAngle">
+           <double>200.000000000000000</double>
+          </property>
+@@ -384,9 +381,6 @@
+            <height>0</height>
+           </size>
+          </property>
+-         <property name="valid">
+-          <bool>true</bool>
+-         </property>
+          <property name="totalAngle">
+           <double>200.000000000000000</double>
+          </property>
+@@ -518,7 +512,6 @@
    </layout>
   </widget>
   <layoutdefault spacing="6" margin="11"/>
@@ -131,3 +152,6 @@ index 049d4ff..a40502b 100644
   <customwidgets>
    <customwidget>
     <class>QwtWheel</class>
+
+
+
