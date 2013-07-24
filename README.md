@@ -1,3 +1,7 @@
+---
+published: false
+---
+
 # HackRF OSX Install
 
 This will walk you through getting HackRF to work on OSX. It is really just an adaptation of the awesome collection of [Homebrew](https://github.com/mxcl/homebrew) recipes from [Titanous](https://github.com/titanous/homebrew-gnuradio) for getting GNU Radio running on OSX.
@@ -83,7 +87,21 @@ These steps have been tested on Mountain Lion 10.8.4 with Xcode 4.6.3. It is pro
   ```sh
   brew install rtlsdr gr-osmosdr gr-baz --HEAD
   ```
-
+- If you want a graphic interface to play with your HackRF, GQRX is great
+  To install it:
+  
+  ```sh
+  brew install --HEAD gqrx
+  ```
+  
+  To run:
+  
+  ```sh
+  gqrx
+  ```
+  
+  And then configure it to use the HackRF. Probably best to start the sample rate at 1000000 until you know how much your system can handle.
+  
 **Congratulations!!**
 
 Everything should now be working. It is time to give it a try! Below are some of the programs you can try
