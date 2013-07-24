@@ -6,7 +6,7 @@ require 'formula'
 
 class Gqrx < Formula
   homepage 'https://github.com/csete/gqrx'
-  head 'https://github.com/csete/gqrx.git'
+  head 'https://github.com/csete/gqrx.git', :branch => 'gr3.6'
 
   depends_on 'cmake' => :build
   depends_on 'qt'
@@ -20,42 +20,74 @@ class Gqrx < Formula
   end
 
   def install
+    system "qmake -set PKG_CONFIG /usr/local/bin/pkg-config"      
+    system "qmake -query"
     system "qmake gqrx.pro"
     system "make"
     bin.install 'gqrx.app/Contents/MacOS/gqrx'
   end
 end
 __END__
+
 diff --git a/gqrx.pro b/gqrx.pro
-index a7ac741..423dbc2 100644
+index 2571518..5e9c600 100644
 --- a/gqrx.pro
 +++ b/gqrx.pro
-@@ -6,17 +6,11 @@
+@@ -11,17 +11,13 @@ contains(QT_MAJOR_VERSION,5) {
  
- QT       += core gui svg
  TEMPLATE = app
--
+ 
 -macx {
 -    TARGET = Gqrx
 -    ICON = icons/scope.icns
+-    DEFINES += GQRX_OS_MACX
 -} else {
 -    TARGET = gqrx
 -}
++
 +TARGET = gqrx
++
  
  linux-g++|linux-g++-64 {
-     # Comment out to use gnuradio-audio (wont work on Linux)
+     # Comment out to use gr-audio (gr 3.6.5.1 or later recommended)
 -    AUDIO_BACKEND = pulse
-+    # AUDIO_BACKEND = pulse
++    #AUDIO_BACKEND = pulse
  }
  
  RESOURCES += icons.qrc
-@@ -159,7 +153,7 @@ unix:!macx {
- #    LIBS += -lrt  # need to include on some distros
+@@ -155,28 +151,19 @@ contains(AUDIO_BACKEND, pulse): {
+ 
+ # dependencies via pkg-config
+ # FIXME: check for version?
+-unix {
+-    CONFIG += link_pkgconfig
+-
+-    contains(AUDIO_BACKEND, pulse): {
+-        PKGCONFIG += libpulse libpulse-simple
+-    } else {
+-        PKGCONFIG += gnuradio-audio
+-    }
+-    PKGCONFIG += gnuradio-core gnuradio-osmosdr
+-}
+ 
+ unix:!macx {
+     LIBS += -lboost_system -lboost_program_options
+     LIBS += -lrt  # need to include on some distros
  }
  
 -macx-g++ {
+-     LIBS += -lboost_system-mt -lboost_program_options-mt
+-#    INCLUDEPATH += /usr/local/include
+-#    INCLUDEPATH += /usr/local/include/gnuradio
+-#    INCLUDEPATH += /usr/local/include/osmosdr
+-#    INCLUDEPATH += /opt/local/include
 +macx {
-      LIBS += -lboost_system-mt -lboost_program_options-mt
- #    INCLUDEPATH += /usr/local/include
- #    INCLUDEPATH += /usr/local/include/gnuradio
++     LIBS += -lboost_system-mt -lboost_program_options-mt -lgnuradio-audio -lgnuradio-core -lgnuradio-osmosdr -lgruel
++     LIBPATH += /usr/loca/lib
++     INCLUDEPATH += /usr/local/include
++     INCLUDEPATH += /usr/local/include/gnuradio
++     INCLUDEPATH += /usr/local/include/osmosdr
++     INCLUDEPATH += /opt/local/include
+ }
+ 
+ OTHER_FILES += \
