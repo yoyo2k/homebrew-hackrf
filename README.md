@@ -55,13 +55,6 @@ These steps have been tested on Mountain Lion 10.8.4 with Xcode 4.6.3. It is pro
   ```sh
   brew install wxmac --python
   ```
-- Install GCC 4.2
-
-  ```sh
-  brew update
-  brew tap homebrew/dupes
-  brew install apple-gcc42
-  ```
 
 - Install gnuradio 
 
