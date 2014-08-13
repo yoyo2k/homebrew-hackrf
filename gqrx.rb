@@ -90,4 +90,31 @@ index 2571518..5e9c600 100644
 +     INCLUDEPATH += /opt/local/include
  }
  
- OTHER_FILES += \
+ OTHER_FILES += \diff --git a/dsp/rx_agc_xx.cpp b/dsp/rx_agc_xx.cpp
+index 0b2ce61..2157266 100644
+--- a/dsp/rx_agc_xx.cpp
++++ b/dsp/rx_agc_xx.cpp
+@@ -83,8 +83,7 @@ int rx_agc_cc::work(int noutput_items,
+     d_agc->ProcessData(noutput_items, &ib[0], &ob[0]);
+ 
+     for (i = 0; i < noutput_items; i++) {
+-        out[i].real() = ob[i].re;
+-        out[i].imag() = ob[i].im;
++        out[i] = gr_complex(ob[i].re, ob[i].im);
+     }
+ 
+     return noutput_items;
+diff --git a/dsp/rx_noise_blanker_cc.cpp b/dsp/rx_noise_blanker_cc.cpp
+index f52ffa3..cbdc9c6 100644
+--- a/dsp/rx_noise_blanker_cc.cpp
++++ b/dsp/rx_noise_blanker_cc.cpp
+@@ -74,8 +74,7 @@ int rx_nb_cc::work(int noutput_items,
+     // copy data into output buffer then perform the processing on that buffer
+     for (i = 0; i < noutput_items; i++)
+     {
+-        out[i].imag() = in[i].imag();
+-        out[i].real() = in[i].real();
++        out[i] = in[i];
+     }
+ 
+     if (d_nb1_on)
