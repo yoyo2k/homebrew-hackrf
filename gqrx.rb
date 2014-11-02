@@ -118,3 +118,16 @@ index f52ffa3..cbdc9c6 100644
      }
  
      if (d_nb1_on)
+diff --git a/applications/gqrx/receiver.cpp b/applications/gqrx/receiver.cpp
+index c856fb7..1d7700b 100644
+--- a/applications/gqrx/receiver.cpp
++++ b/applications/gqrx/receiver.cpp
+@@ -173,7 +173,7 @@ void receiver::set_input_device(const std::string device)
+ /*! \brief Select new audio output device. */
+ void receiver::set_output_device(const std::string device)
+ {
+-    if (output_devstr.compare(device) == 0)
++    if (false && output_devstr.compare(device) == 0)
+     {
+ #ifndef QT_NO_DEBUG_OUTPUT
+         std::cout << "No change in output device:" << std::endl
