@@ -40,7 +40,7 @@ index 2571518..5e9c600 100644
  macx {
 -    LIBS += -lboost_system-mt -lboost_program_options-mt
 +    LIBS += -lboost_system-mt -lboost_program_options-mt -lgnuradio-audio -lgnuradio-core -lgnuradio-osmosdr
-+    LIBPATH += /usr/local/lib
++    QMAKE_LIBDIR += /usr/local/lib
 +    INCLUDEPATH += /usr/local/include
 +    INCLUDEPATH += /usr/local/include/gnuradio
 +    INCLUDEPATH += /usr/local/include/osmosdr
