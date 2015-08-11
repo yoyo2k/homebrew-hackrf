@@ -27,5 +27,3 @@ class Gqrx < Formula
     bin.install 'gqrx.app/Contents/MacOS/gqrx'
   end
 end
-__END__
-
